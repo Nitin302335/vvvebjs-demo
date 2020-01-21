@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<h2>Here are some links to help you start: </h2>
+<form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+  <div *ngFor="let data of Data; let i=index">
+    <label>
+      <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)" />
+      {{data.name}}
+    </label>
+  </div>
+  <p class="error" *ngIf="this.form.controls['checkArray'].errors?.required">
+      Checkbox is required, select atleast one value.
+    </p>
+  <!-- Form elements goes here -->
+  <input type="submit" value="Submit">
+</form>
+<li>
+  <h2><a [routerLink]="['test']">edtor</a></h2>
+  <h2><a [routerLink]="['template']">template</a></h2>
+</li>
+
+<router-outlet></router-outlet>
